@@ -4,10 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+
 
 class Customer extends Model
 {
     use HasFactory;
+    use Sortable;
+
 //database list 
     protected $table= "customers";
     protected $fillable = [
@@ -23,6 +27,20 @@ class Customer extends Model
 
 
     ];
+    public $sortable = [
+        'first_name', 
+        'last_name',
+        'birthdate',
+        'email',
+        'address',
+        'gender',
+        'hobby',  
+        'image',
+        'profession'
+
+
+    ];
+    
     // protected $table= "customers";
     protected $appends = ['full_name'];
 

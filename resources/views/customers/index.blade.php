@@ -27,19 +27,19 @@
     <table class="table table-bordered">
         <thead>
         <tr>
-            <th>No</th>
-            <th>First_Name</th>
-            <th>Last_Name</th>
-            <th>full_name</th>
-            <th>Birthday</th>
-            <th>Email</th>
-            <th>address</th>
-            <th>gender</th>
-            <th>Hobby</th>
-            <th>Mobile</th>
-            <th>Profession</th>
-            <th>image</th>   
-            <th>Action</th>
+            <th>@sortablelink('No')</th>
+            <th>@sortablelink('First_Name')</th>
+            <th>@sortablelink('Last_Name')</th>
+            <th>@sortablelink('full_name')</th>
+            <th>@sortablelink('Birthday')</th>
+            <th>@sortablelink('Email')</th>
+            <th>@sortablelink('address')</th>
+            <th>@sortablelink('gender')</th>
+            <th>@sortablelink('Hobby')</th>
+            <th>@sortablelink('Mobile')</th>
+            <th>@sortablelink('Profession')</th>
+            <th>@sortablelink('image')</th>   
+            <th>@sortablelink('Action')</th>
         </tr>
         </thead>
         <tbody>
@@ -78,7 +78,8 @@
          @endforeach
     </table>
 
-    {!! $customers->links() !!}
+    {{-- $customers->links() --}}
+    {!! $customers->appends(\Request::except('page'))->render() !!}
         
 @endsection
 

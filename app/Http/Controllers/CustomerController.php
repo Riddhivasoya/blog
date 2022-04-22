@@ -20,10 +20,10 @@ class CustomerController extends Controller
     {
         
                    
-        $customers = Customer::latest()->paginate(5);
+        $customers = Customer::sortable()->paginate(3);
 
         return view('customers.index',compact('customers')) 
-        ->with  ('i',(request()->input('page',1)-1)*5);
+        ->with  ('i',(request()->input('page',1)-1)*3);
         
 
     }
