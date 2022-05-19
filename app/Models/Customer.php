@@ -5,15 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Kyslik\ColumnSortable\Sortable;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 
 class Customer extends Model
 {
     use HasFactory;
     use Sortable;
+    use SoftDeletes;
 
 //database list 
     protected $table= "customers";
+    protected $dates = ['deleted_at'];
     protected $fillable = [
         'first_name', 
         'last_name',
